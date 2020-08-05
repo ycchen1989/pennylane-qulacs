@@ -127,6 +127,7 @@ class QulacsDevice(Device):
         self._first_operation = True
 
     def apply(self, operation, wires, par):
+        par = np.negative(par)
         if operation == 'BasisState' and not self._first_operation:
             raise DeviceError(
                 'Operation {} cannot be used after other Operations have already been applied '
